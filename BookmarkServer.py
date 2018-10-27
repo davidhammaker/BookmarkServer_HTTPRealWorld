@@ -89,7 +89,7 @@ def CheckURI(uri, timeout=5):
 
 
 class ThreadHTTPServer(ThreadingMixIn, http.server.HTTPServer):
-    """This is an HTTPServer that supports thread-based concurrency."""
+    "This is an HTTPServer that supports thread-based concurrency."
 
 
 class Shortener(http.server.BaseHTTPRequestHandler):
@@ -157,7 +157,7 @@ class Shortener(http.server.BaseHTTPRequestHandler):
             self.wfile.write("404 - Your 'Long URI' isn't working.".encode())
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 8000)) # Use PORT if it's there
+    port = int(os.environ.get('PORT', 8000))
     server_address = ('', port)
     httpd = ThreadHTTPServer(server_address, Shortener)
     httpd.serve_forever()
